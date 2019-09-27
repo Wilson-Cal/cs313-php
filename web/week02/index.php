@@ -19,35 +19,35 @@
             <h1>Assignments</h1>
             <div class="row">
                 <div class="col s12 m3">
-                    <a class="waves-effect waves-light btn-large orange hoverable" href="../week01"><i class="material-icons left">assignment</i>Week 1</a>
+                    <a class="waves-effect waves-light btn-large orange hoverable" href="../week01"><i class="material-icons left">assignment</i>Week 01</a>
                 </div>
                 <div class="col s12 m3">
-                    <a class="waves-effect waves-light btn-large orange hoverable" href="../week02"><i class="material-icons left">assignment</i>Week 2</a>
+                    <a class="waves-effect waves-light btn-large orange hoverable" href="../week02"><i class="material-icons left">assignment</i>Week 02</a>
                 </div>
                 <div class="col s12 m3">
-                    <a class="waves-effect waves-light btn-large orange hoverable" href="../week03"><i class="material-icons left">assignment</i>Week 3</a>
+                    <a class="waves-effect waves-light btn-large orange hoverable" href="../week03"><i class="material-icons left">assignment</i>Week 03</a>
                 </div>
                 <div class="col s12 m3">
-                    <a class="waves-effect waves-light btn-large orange hoverable" href="../week04"><i class="material-icons left">assignment</i>Week 4</a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s12 m3">
-                    <a class="waves-effect waves-light btn-large orange hoverable" href="../week05"><i class="material-icons left">assignment</i>Week 5</a>
-                </div>
-                <div class="col s12 m3">
-                    <a class="waves-effect waves-light btn-large orange hoverable" href="../week06"><i class="material-icons left">assignment</i>Week 6</a>
-                </div>
-                <div class="col s12 m3">
-                    <a class="waves-effect waves-light btn-large orange hoverable" href="../week07"><i class="material-icons left">assignment</i>Week 7</a>
-                </div>
-                <div class="col s12 m3">
-                    <a class="waves-effect waves-light btn-large orange hoverable" href="../week08"><i class="material-icons left">assignment</i>Week 8</a>
+                    <a class="waves-effect waves-light btn-large orange hoverable" href="../week04"><i class="material-icons left">assignment</i>Week 04</a>
                 </div>
             </div>
             <div class="row">
                 <div class="col s12 m3">
-                    <a class="waves-effect waves-light btn-large orange hoverable" href="../week09"><i class="material-icons left">assignment</i>Week 9</a>
+                    <a class="waves-effect waves-light btn-large orange hoverable" href="../week05"><i class="material-icons left">assignment</i>Week 05</a>
+                </div>
+                <div class="col s12 m3">
+                    <a class="waves-effect waves-light btn-large orange hoverable" href="../week06"><i class="material-icons left">assignment</i>Week 06</a>
+                </div>
+                <div class="col s12 m3">
+                    <a class="waves-effect waves-light btn-large orange hoverable" href="../week07"><i class="material-icons left">assignment</i>Week 07</a>
+                </div>
+                <div class="col s12 m3">
+                    <a class="waves-effect waves-light btn-large orange hoverable" href="../week08"><i class="material-icons left">assignment</i>Week 08</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m3">
+                    <a class="waves-effect waves-light btn-large orange hoverable" href="../week09"><i class="material-icons left">assignment</i>Week 09</a>
                 </div>
                 <div class="col s12 m3">
                     <a class="waves-effect waves-light btn-large orange hoverable" href="../week10"><i class="material-icons left">assignment</i>Week 10</a>
