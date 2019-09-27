@@ -24,7 +24,7 @@
                     <img src="../images/me.jpg" class="responsive-img">
                     <p>
                         Hi! My name is Cal Wilson. I am currently in my last semester as a student at BYU-Idaho.
-                        I am studying Software Engineering and I really have enjoy the things I have learned. I
+                        I am studying Software Engineering and I really have enjoyed the things I have learned. I
                         am very excited to graduate and begin my career as a software developer.
                     </p>
                     <p>
@@ -38,7 +38,7 @@
                         and raise a family.
                     </p>
                     <p>
-                        I currently work as a Student Software Developer for BYU-Idaho's IT department. I do alot of
+                        I currently work as a Student Software Developer for BYU-Idaho's IT department. I do a lot of
                         work in NodeJS and C#. We mostly interact with and write automation tools for I-Learn via the
                         <a href="https://canvas.instructure.com/doc/api/" target="_blank">Canvas Rest API</a>.
                     </p>
