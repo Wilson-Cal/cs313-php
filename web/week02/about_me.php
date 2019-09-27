@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>CS 313 Homepage</title>
+    <title>CS 313 - About Me</title>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
