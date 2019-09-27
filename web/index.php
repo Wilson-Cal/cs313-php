@@ -12,6 +12,7 @@
 </head>
 
 <body>
+  <!--Include Header from template php file-->
   <?php include './src/php_templates/header.php'; ?>
   <main>
     <div class="container">
@@ -22,16 +23,19 @@
       </div>
       <div class="row">
         <div class="col s12">
-          <a class="waves-effect waves-light btn-large orange" href="./week02/about_me.php"><i class="material-icons left">account_circle</i>About Me</a>
+          <!--About me button-->
+          <a class="waves-effect waves-light btn-large orange hoverable" href="./week02/about_me.php"><i class="material-icons left">account_circle</i>About Me</a>
         </div>
       </div>
       <div class="row">
         <div class="col s12">
-          <a class="waves-effect waves-light btn-large orange" href="./week02"><i class="material-icons left">assignment</i>Assignments</a>
+          <!--Assignments button-->
+          <a class="waves-effect waves-light btn-large orange hoverable" href="./week02"><i class="material-icons left">assignment</i>Assignments</a>
         </div>
       </div>
     </div>
   </main>
+  <!--Include Footer from template php file-->
   <?php include './src/php_templates/footer.php'; ?>
   <script type="text/javascript" src="./src/materialize/js/materialize.min.js">
   </script>
