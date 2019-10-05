@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>CS 313 - Assignments</title>
+    <title>CS 313 - Week 2</title>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
