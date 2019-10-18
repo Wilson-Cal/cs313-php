@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>PC Part Index</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" media="screen" href="./main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <link rel="shortcut icon" type="img/icon" href="./favicon.ico" />
 </head>
 
@@ -63,6 +63,6 @@
         </ul>
     </footer>
 </body>
-<script src="./main.js"></script>
+<script src="main.js"></script>
 
 </html>
