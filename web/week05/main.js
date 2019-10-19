@@ -3,42 +3,50 @@ let computerComponents = [{
 },
 {
     name: 'Cases',
-    url: 'https://raw.githubusercontent.com/Wilson-Cal/CIT-261-Final-Project/master/components/cases.json',
+    url: 'dbquery.php?',
+    type: 'computer_case',
     data: []
 },
 {
     name: 'Coolers',
-    url: 'https://raw.githubusercontent.com/Wilson-Cal/CIT-261-Final-Project/master/components/coolers.json',
+    url: 'dbquery.php',
+    type: 'cooler',
     data: []
 },
 {
     name: 'Graphics Cards',
-    url: 'https://raw.githubusercontent.com/Wilson-Cal/CIT-261-Final-Project/master/components/GPUs.json',
+    url: 'dbquery.php',
+    type: 'graphics_card',
     data: []
 },
 {
     name: 'Memory',
-    url: 'https://raw.githubusercontent.com/Wilson-Cal/CIT-261-Final-Project/master/components/memory.json',
+    url: 'dbquery.php',
+    type: 'memory',
     data: []
 },
 {
     name: 'Motherboards',
-    url: 'https://raw.githubusercontent.com/Wilson-Cal/CIT-261-Final-Project/master/components/motherboards.json',
+    url: 'dbquery.php',
+    type: 'motherboard',
     data: []
 },
 {
     name: 'Power Supply Units',
-    url: 'https://raw.githubusercontent.com/Wilson-Cal/CIT-261-Final-Project/master/components/PSUs.json',
+    url: 'dbquery.php',
+    type: 'power_supply_unit',
     data: []
 },
 {
     name: 'Processors',
-    url: 'https://raw.githubusercontent.com/Wilson-Cal/CIT-261-Final-Project/master/components/CPUs.json',
+    url: 'dbquery.php',
+    type: 'processor',
     data: []
 },
 {
     name: 'Storage',
-    url: 'https://raw.githubusercontent.com/Wilson-Cal/CIT-261-Final-Project/master/components/storage.json',
+    url: 'dbquery.php',
+    type: 'storage',
     data: []
 }
 ];
@@ -46,7 +54,7 @@ let computerComponents = [{
 let rowCount = 0;
 let modal = document.getElementById('myModal');
 
-function Get(url) {
+function Get(url, request) {
     return new Promise((resolve) => {
         let xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
@@ -55,7 +63,7 @@ function Get(url) {
             }
         };
         xhttp.open('GET', url, true);
-        xhttp.send();
+        xhttp.send(request);
     });
 }
 
@@ -410,7 +418,7 @@ window.addEventListener('load', () => {
     // Get the data for each component
     computerComponents.forEach(component => {
         if (component.name !== 'All Items') {
-            Get(component.url).then(rawData => {
+            Get(component.url, "x=" + JSON.stringify({ type: component.type })).then(rawData => {
                 component.data = JSON.parse(rawData);
             }).catch(console.error);
         }
@@ -506,5 +514,3 @@ document.getElementsByClassName('favorite')[0].addEventListener('click', () => {
         favoriteStar.innerHTML = '&#9734;';
     }
 });
-
-Get("./dbquery.php").then(console.log);

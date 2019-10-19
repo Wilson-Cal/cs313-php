@@ -5,8 +5,8 @@ $db = get_db();
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     header("Content-Type: application/json; charset=UTF-8");
     $obj = json_decode($_POST["x"], false);
-
-    $statement = $db->prepare("SELECT * FROM processor");
+    $tableName = $obj->type;
+    $statement = $db->prepare("SELECT * FROM " . $tableName);
     $statement->execute();
 
     $dbdata = array();
