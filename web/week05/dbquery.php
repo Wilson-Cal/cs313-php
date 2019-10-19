@@ -5,8 +5,7 @@ $db = get_db();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Content-Type: application/json; charset=UTF-8");
     $obj = json_decode($_POST["x"], false);
-    echo $obj->type;
-    $tableName = "processor";
+    $tableName = $obj->type;
     $query = "SELECT * from " . $tableName;
     $statement = $db->prepare($query);
     $statement->execute();
@@ -16,5 +15,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
         $dbdata[] = $row;
     }
-    // echo json_encode($dbdata);
+    echo json_encode($dbdata);
 }
