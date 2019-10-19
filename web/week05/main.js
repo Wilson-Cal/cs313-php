@@ -62,7 +62,7 @@ function Get(url, request) {
                 resolve(this.responseText);
             }
         };
-        xhttp.open('GET', url, true);
+        xhttp.open('POST', url, true);
         xhttp.send(request);
     });
 }
