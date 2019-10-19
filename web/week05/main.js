@@ -506,3 +506,5 @@ document.getElementsByClassName('favorite')[0].addEventListener('click', () => {
         favoriteStar.innerHTML = '&#9734;';
     }
 });
+
+Get("./dbquery.php").then(console.log);

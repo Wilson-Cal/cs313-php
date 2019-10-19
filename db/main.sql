@@ -19,3 +19,5 @@ CREATE TABLE public.motherboard (id SERIAL NOT NULL PRIMARY KEY,part_name VARCHA
 CREATE TABLE public.power_supply_unit (id SERIAL NOT NULL PRIMARY KEY,part_name VARCHAR(100) NOT NULL,price REAL,series VARCHAR(100),form VARCHAR(100),efficiency VARCHAR(100),watts INT,modular VARCHAR(100));
 CREATE TABLE public.processor (id SERIAL NOT NULL PRIMARY KEY,part_name VARCHAR(100) NOT NULL,price REAL,speed REAL,tdp INT,cores INT);
 CREATE TABLE public.storage (id SERIAL NOT NULL PRIMARY KEY,part_name VARCHAR(100) NOT NULL,price REAL,series VARCHAR(100),form VARCHAR(100),part_type VARCHAR(100),capacity VARCHAR(100),cache VARCHAR(100),pricePerGB REAL);
+
+INSERT INTO processor(part_name,price,speed,tdp,cores) VALUES ('Intel Core i7-8700K','347.99',3.7,95,6);
