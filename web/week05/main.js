@@ -419,6 +419,7 @@ window.addEventListener('load', () => {
     computerComponents.forEach(component => {
         if (component.name !== 'All Items') {
             Get(component.url, "x=" + JSON.stringify({ type: component.type })).then(rawData => {
+                console.log(rawData);
                 component.data = JSON.parse(rawData);
             }).catch(console.error);
         }
