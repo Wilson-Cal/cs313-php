@@ -72,8 +72,8 @@ function setCategoriesDropdown() {
     let categories = document.querySelector('[id=categories]');
     computerComponents.forEach(component => {
         let option = document.createElement('option');
-        option.setAttribute('value', component.name);
-        option.appendChild(document.createTextNode(component.name));
+        option.setAttribute('value', component.part_name);
+        option.appendChild(document.createTextNode(component.part_name));
         categories.appendChild(option);
     });
 }
@@ -111,7 +111,7 @@ function getFilteredComponents(category, q) {
         if (q !== undefined && category !== undefined) {
             // The user has defined a category and a search parameter
             i = computerComponents.findIndex(component => {
-                return component.name === category;
+                return component.part_name === category;
             });
             filteredComponents = computerComponents[i].data.filter((part, index) => {
                 partValues = Object.values(part);
@@ -127,7 +127,7 @@ function getFilteredComponents(category, q) {
         } else if (category !== undefined) {
             // A category other than 'All Items' has been selected
             i = computerComponents.findIndex(component => {
-                return component.name === category;
+                return component.part_name === category;
             });
             computerComponents[i].data.forEach((part, index) => {
                 computerComponents[i].data[index].category = computerComponents[i].name;
@@ -136,13 +136,13 @@ function getFilteredComponents(category, q) {
         } else if (q !== undefined) {
             // Only a query is given, run it against all items
             computerComponents.forEach((component, index) => {
-                if (component.name !== 'All Items') {
+                if (component.part_name !== 'All Items') {
                     component.data.forEach((item, iIndex) => {
                         partValues = Object.values(item);
                         for (j = 0; j < partValues.length; j++) {
                             if (partValues[j] !== null) {
                                 if (partValues[j].toString().toLowerCase().includes(q)) {
-                                    computerComponents[index].data[iIndex].category = component.name;
+                                    computerComponents[index].data[iIndex].category = component.part_name;
                                     filteredComponents.push(item);
                                     break;
                                 }
@@ -154,9 +154,9 @@ function getFilteredComponents(category, q) {
         } else {
             // Get all items
             computerComponents.forEach((component, index) => {
-                if (component.name !== 'All Items') {
+                if (component.part_name !== 'All Items') {
                     component.data.forEach((item, iIndex) => {
-                        computerComponents[index].data[iIndex].category = component.name;
+                        computerComponents[index].data[iIndex].category = component.part_name;
                         filteredComponents.push(item);
                     });
                 }
@@ -332,7 +332,7 @@ function createTable(filteredComponents) {
         tr.addEventListener('click', (item) => {
             let itemName = item.target.parentNode.children[0].textContent;
             let itemIndex = filteredComponents.findIndex(component => {
-                return component.name.toLowerCase() === itemName.toLowerCase();
+                return component.part_name.toLowerCase() === itemName.toLowerCase();
             });
             if (itemIndex !== -1) {
                 makeModal(itemName, filteredComponents[itemIndex]);
@@ -418,7 +418,7 @@ function getFavorites() {
 window.addEventListener('load', () => {
     // Get the data for each component
     computerComponents.forEach(component => {
-        if (component.name !== 'All Items') {
+        if (component.part_name !== 'All Items') {
             Get(component.url, "x=" + JSON.stringify({ type: component.type })).then(rawData => {
                 component.data = JSON.parse(rawData);
             }).catch(console.error);
