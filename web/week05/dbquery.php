@@ -1,6 +1,5 @@
 <?php
-require "../dbconnect.php";
-$db = get_db();
+require "./dbconnect.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     header("Content-Type: application/json; charset=UTF-8");
