@@ -3,7 +3,7 @@ let computerComponents = [{
 },
 {
     name: 'Cases',
-    url: 'dbquery.php?',
+    url: 'dbquery.php',
     type: 'computer_case',
     data: []
 },
