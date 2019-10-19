@@ -55,7 +55,6 @@ let rowCount = 0;
 let modal = document.getElementById('myModal');
 
 function Get(url, request) {
-    console.log(request);
     return new Promise((resolve) => {
         let xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
@@ -320,7 +319,7 @@ function createTable(filteredComponents) {
         name = document.createElement('td');
         category = document.createElement('td');
         price = document.createElement('td');
-        name.textContent = filteredComponents[i].name;
+        name.textContent = filteredComponents[i].part_name;
         category.textContent = filteredComponents[i].category;
         if (filteredComponents[i].price !== 'N/A') {
             price.textContent = '$' + filteredComponents[i].price;
@@ -421,7 +420,6 @@ window.addEventListener('load', () => {
     computerComponents.forEach(component => {
         if (component.name !== 'All Items') {
             Get(component.url, "x=" + JSON.stringify({ type: component.type })).then(rawData => {
-                console.log(rawData);
                 component.data = JSON.parse(rawData);
             }).catch(console.error);
         }
