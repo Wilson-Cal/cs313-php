@@ -55,6 +55,7 @@ let rowCount = 0;
 let modal = document.getElementById('myModal');
 
 function Get(url, request) {
+    console.log(request);
     return new Promise((resolve) => {
         let xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
