@@ -2,7 +2,7 @@
 require "./dbconnect.php";
 $db = get_db();
 
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Content-Type: application/json; charset=UTF-8");
     $obj = json_decode($_GET["x"], false);
     echo $obj->type;
@@ -17,4 +17,4 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $dbdata[] = $row;
     }
     // echo json_encode($dbdata);
-} else if ($_SERVER["REQUEST_METHOD"] == "POST") { }
+}
