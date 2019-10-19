@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     header("Content-Type: application/json; charset=UTF-8");
     $obj = json_decode($_GET["x"], false);
     $tableName = "processor";
-    $statement = $db->prepare(`SELECT * FROM $tableName`);
+    $statement = $db->prepare("SELECT * FROM processor");
     $statement->execute();
 
     $dbdata = array();
