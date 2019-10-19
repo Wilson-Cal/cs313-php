@@ -1,54 +1,54 @@
 let computerComponents = [{
     name: 'All Items'
 },
-// {
-//     name: 'Cases',
-//     url: 'dbquery.php?',
-//     type: 'computer_case',
-//     data: []
-// },
-// {
-//     name: 'Coolers',
-//     url: 'dbquery.php',
-//     type: 'cooler',
-//     data: []
-// },
-// {
-//     name: 'Graphics Cards',
-//     url: 'dbquery.php',
-//     type: 'graphics_card',
-//     data: []
-// },
-// {
-//     name: 'Memory',
-//     url: 'dbquery.php',
-//     type: 'memory',
-//     data: []
-// },
-// {
-//     name: 'Motherboards',
-//     url: 'dbquery.php',
-//     type: 'motherboard',
-//     data: []
-// },
-// {
-//     name: 'Power Supply Units',
-//     url: 'dbquery.php',
-//     type: 'power_supply_unit',
-//     data: []
-// },
+{
+    name: 'Cases',
+    url: 'dbquery.php?',
+    type: 'computer_case',
+    data: []
+},
+{
+    name: 'Coolers',
+    url: 'dbquery.php',
+    type: 'cooler',
+    data: []
+},
+{
+    name: 'Graphics Cards',
+    url: 'dbquery.php',
+    type: 'graphics_card',
+    data: []
+},
+{
+    name: 'Memory',
+    url: 'dbquery.php',
+    type: 'memory',
+    data: []
+},
+{
+    name: 'Motherboards',
+    url: 'dbquery.php',
+    type: 'motherboard',
+    data: []
+},
+{
+    name: 'Power Supply Units',
+    url: 'dbquery.php',
+    type: 'power_supply_unit',
+    data: []
+},
 {
     name: 'Processors',
     url: 'dbquery.php',
     type: 'processor',
     data: []
 },
-    // {
-    //     name: 'Storage',
-    //     url: 'dbquery.php',
-    //     type: 'storage',
-    //     data: []
-    // }
+{
+    name: 'Storage',
+    url: 'dbquery.php',
+    type: 'storage',
+    data: []
+}
 ];
 
 let rowCount = 0;
