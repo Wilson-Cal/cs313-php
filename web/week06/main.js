@@ -507,7 +507,7 @@ document.getElementsByClassName('favorite')[0].addEventListener('click', () => {
         // User wants to remove a favorite
         console.log('Removing Favorite');
         favorites = favorites.filter(favorite => {
-            return favorite.name.toLowerCase() !== document.getElementById('item-name').textContent.toLowerCase();
+            return favorite.part_name.toLowerCase() !== document.getElementById('item-name').textContent.toLowerCase();
         });
         localStorage.setItem('favorites', JSON.stringify(favorites));
         console.log('Current Favorites', getFavorites());
