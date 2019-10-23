@@ -1,0 +1,469 @@
+* {
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    background-color: #222;
+    color: #999;
+}
+
+/* Heading CSS */
+
+h1 {
+    font-size: 45px;
+}
+
+h1.title {
+    margin: 15px;
+}
+
+h2 {
+    font-size: 25px;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+h4 {
+    font-size: 18px
+}
+
+/* Paragraph CSS */
+
+p {
+    font-size: 16px;
+}
+
+/* Anchor CSS */
+
+a {
+    text-decoration: none;
+    color: #999;
+}
+
+#amazon-link {
+    text-decoration: underline;
+}
+
+#amazon-link:hover {
+    color: whitesmoke;
+}
+
+#newegg-link {
+    text-decoration: underline;
+}
+
+#newegg-link:hover {
+    color: whitesmoke;
+}
+
+/* Button CSS */
+
+.showMore {
+    display: inline-block;
+    background-color: #444;
+    border: none;
+    color: #999;
+    text-align: center;
+    font-size: 16px;
+    padding: 20px;
+    width: 175px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.showMore:hover {
+    cursor: pointer;
+    background-color: #111;
+}
+
+.showMore span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.showMore span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.showMore:hover span {
+    padding-right: 25px;
+}
+
+.showMore:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+/* NavBar CSS */
+
+.nav {
+    list-style-type: none;
+    background-color: #222;
+    position: relative;
+    top: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    height: 46px;
+    border-bottom: 1px solid #111;
+}
+
+.nav>li {
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 16px;
+}
+
+.nav>li:hover {
+    background-color: #111;
+    cursor: pointer;
+}
+
+.nav>li.search:hover {
+    cursor: auto;
+    background-color: #222;
+}
+
+/* Table CSS */
+
+#components {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#components td,
+#components th {
+    border: 1px solid #111;
+    padding: 8px;
+}
+
+#components tr:nth-child(even) {
+    background-color: #333;
+}
+
+#components tr:not(:first-child):hover {
+    background-color: #555;
+    cursor: pointer;
+}
+
+#components th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #1212;
+    color: whitesmoke;
+}
+
+#modal-components {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#modal-components td,
+#modal-components th {
+    border: 1px solid #111;
+    padding: 8px;
+}
+
+#modal-components tr:nth-child(even) {
+    background-color: #333;
+}
+
+#modal-components tr:not(:first-child):hover {
+    background-color: #555;
+}
+
+#modal-components th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #222;
+    color: whitesmoke;
+}
+
+th.sort-by {
+    padding-right: 18px;
+    position: relative;
+}
+
+th.sort-by:before,
+th.sort-by:after {
+    border: 4px solid transparent;
+    content: "";
+    display: block;
+    height: 0;
+    right: 5px;
+    top: 50%;
+    position: absolute;
+    width: 0;
+}
+
+th.sort-by:before {
+    border-bottom-color: whitesmoke;
+    margin-top: -9px;
+}
+
+th.sort-by:after {
+    border-top-color: whitesmoke;
+    margin-top: 1px;
+}
+
+/* Input Form CSS */
+
+.nav>select {
+    height: 46px;
+    font-size: 16px;
+    background-color: #222;
+    width: auto;
+    color: #999;
+    border: none;
+    border-radius: 0px;
+}
+
+.nav>select:hover {
+    background-color: #111;
+}
+
+.nav>input[type=search] {
+    float: right;
+    width: 0px;
+    color: whitesmoke;
+    box-sizing: border-box;
+    border: 2px solid #222;
+    font-size: 16px;
+    background-color: #222;
+    background-image: url('../images/searchicon.png');
+    background-position: 20px 13px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+.nav>input[type=search]:hover {
+    width: 500px;
+}
+
+.nav>input[type=search]:focus {
+    width: 500px;
+    background-color: #333;
+    color: whitesmoke;
+}
+
+/* Content Container CSS */
+
+.content {
+    margin: 75px;
+}
+
+/* Modal CSS */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    position: relative;
+    background-color: #333;
+    margin: auto;
+    padding-bottom: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    height: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+.favorite {
+    float: left;
+    font-size: 18px;
+}
+
+.favorite:hover {
+    cursor: pointer;
+    color: whitesmoke;
+}
+
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+.close {
+    color: whitesmoke;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #999;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 0.5px 5px;
+    background-color: #222;
+    color: #999;
+}
+
+#item-name {
+    margin-left: 25px;
+}
+
+.modal-body {
+    padding: 2px 16px;
+    overflow-x: auto;
+}
+
+/* Footer CSS */
+
+footer {
+    text-align: center;
+    display: none;
+}
+
+footer>ul {
+    padding: 0px;
+}
+
+footer>ul>li {
+    list-style-type: none;
+}
+
+/* Async Loader */
+
+#loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    margin: -35px 0 0 -35px;
+    border: 10px solid #444;
+    border-radius: 50%;
+    border-top: 10px solid whitesmoke;
+    width: 75px;
+    height: 75px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#animate-bottom {
+    position: relative;
+    -webkit-animation-name: animatebottom;
+    -webkit-animation-duration: 1s;
+    animation-name: animatebottom;
+    animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+    from {
+        bottom: -100px;
+        opacity: 0
+    }
+    to {
+        bottom: 0px;
+        opacity: 1
+    }
+}
+
+@keyframes animatebottom {
+    from {
+        bottom: -100px;
+        opacity: 0
+    }
+    to {
+        bottom: 0;
+        opacity: 1
+    }
+}
+
+/* Responsive Design CSS */
+
+@media only screen and (max-width:768px) {
+    .content {
+        margin: 10px;
+    }
+    .nav>input[type=search]:hover {
+        width: 30%;
+    }
+    h1.title {
+        margin: 10px;
+    }
+    .nav>select {
+        width: 25%;
+    }
+    .nav>li {
+        width: 20%;
+    }
+    #favorites {
+        width: 25%;
+    }
+}
