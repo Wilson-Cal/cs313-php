@@ -17,16 +17,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         $dbdata = array();
         // Loop through favoriteData and make queries to get users favorites
-        // foreach ($favoriteData as $favorite) {
-        //     $table_part_name = $favorite['table_part_name'];
-        //     $part_id = $favorite['part_id'];
-        //     $query = "SELECT * from $table_part_name WHERE part_id = $part_id";
-        //     $statement = $db->prepare($query);
-        //     $statement->execute();
-        //     while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-        //         $dbdata[] = $row;
-        //     }
-        // }
+        foreach ($favoriteData as $favorite) {
+            $table_part_name = $favorite['table_part_name'];
+            $part_id = $favorite['part_id'];
+            $query = "SELECT * from $table_part_name WHERE part_id = $part_id";
+            $statement = $db->prepare($query);
+            $statement->execute();
+            while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+                $dbdata[] = $row;
+            }
+        }
         echo json_encode($dbdata);
     } else {
         $tableName = $obj->type;
