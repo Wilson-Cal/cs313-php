@@ -428,7 +428,7 @@ window.addEventListener('load', async () => {
     });
     setCategoriesDropdown();
     setCategoryTitle();
-    //await getFavorites();
+    getFavorites();
     createTable(getFilteredComponents(this.value, document.querySelector('input').value.toLowerCase()));
 });
 
