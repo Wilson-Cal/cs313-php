@@ -320,6 +320,7 @@ function createTable(filteredComponents) {
         name = document.createElement('td');
         category = document.createElement('td');
         price = document.createElement('td');
+        console.log(filteredComponents[i]);
         name.textContent = filteredComponents[i].part_name;
         category.textContent = filteredComponents[i].category;
         if (filteredComponents[i].price !== 'N/A') {
