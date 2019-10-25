@@ -320,7 +320,11 @@ function createTable(filteredComponents) {
         name = document.createElement('td');
         category = document.createElement('td');
         price = document.createElement('td');
-        console.log(filteredComponents[i]);
+        computerComponents.forEach(computerComponent => {
+            if (computerComponent.type == filteredComponents[i].category) {
+                filteredComponents[i].category = computerComponent.name;
+            }
+        })
         name.textContent = filteredComponents[i].part_name;
         category.textContent = filteredComponents[i].category;
         if (filteredComponents[i].price !== 'N/A') {
