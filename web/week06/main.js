@@ -172,7 +172,6 @@ function makeModal(itemName, item) {
     let amazonLink = document.getElementById('amazon-link');
     let neweggLink = document.getElementById('newegg-link');
     let table = document.getElementById('modal-table-body');
-    let favorites = getFavorites();
     let favoriteStar = document.getElementsByClassName('favorite')[0];
     let tr = document.createElement('tr');
     let keys = Object.keys(item);
