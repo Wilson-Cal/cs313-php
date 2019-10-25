@@ -8,13 +8,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $queryType = $obj->type;
     if ($queryType == "favorite") {
         $user_id = $obj->user_id;
-        $query = "SELECT * from favorite WHERE user_id = $user_id";
-        $statement = $db->prepare($query);
-        $statement->execute();
-        $favoriteData = array();
-        while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-            $favoriteData[] = $row;
-        }
+        // $query = "SELECT * from favorite WHERE user_id = $user_id";
+        // $statement = $db->prepare($query);
+        // $statement->execute();
+        // $favoriteData = array();
+        // while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+        //     $favoriteData[] = $row;
+        // }
         $dbdata = array();
         // Loop through favoriteData and make queries to get users favorites
         // foreach ($favoriteData as $favorite) {
