@@ -220,6 +220,7 @@ function makeModal(itemName, item) {
     } else if (favorites.length > 0) {
         // Search to see if the selected item is a favorite
         let i = favorites.findIndex(favorite => {
+            console.log(favorite.part_name, itemName);
             return favorite.part_name.toLowerCase() === itemName.toLowerCase();
         });
         if (i !== -1) {
