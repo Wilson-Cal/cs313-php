@@ -24,6 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $statement = $db->prepare($query);
             $statement->execute();
             while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+                $row['category'] = $table_part_name;
                 $dbdata[] = $row;
             }
         }
