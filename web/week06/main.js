@@ -500,7 +500,7 @@ document.getElementsByClassName('favorite')[0].addEventListener('click', async (
         console.log('Adding Favorite');
         computerComponents.forEach(computerComponent => {
             if (computerComponent.name === favoriteObj.category) {
-                favoriteObj.category == computerComponent.type;
+                favoriteObj.category = computerComponent.type;
             }
         });
         console.log(favoriteObj);
