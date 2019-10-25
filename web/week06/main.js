@@ -53,6 +53,7 @@ let computerComponents = [{
 
 let rowCount = 0;
 let modal = document.getElementById('myModal');
+let favorites;
 
 function Get(url, request) {
     return new Promise((resolve) => {
@@ -411,11 +412,12 @@ function sortTable(n) {
     }
 }
 
-function getFavorites() {
-    return JSON.parse(localStorage.getItem('favorites'));
+async function getFavorites() {
+    let requestObj = {};
+    favorites = await Get("dbquery.php", `x=${requestObj}`);
 }
 
-window.addEventListener('load', () => {
+window.addEventListener('load', async () => {
     // Get the data for each component
     computerComponents.forEach(component => {
         if (component.name !== 'All Items') {
@@ -426,9 +428,7 @@ window.addEventListener('load', () => {
     });
     setCategoriesDropdown();
     setCategoryTitle();
-    if (localStorage.getItem('favorites') === null) {
-        localStorage.setItem('favorites', JSON.stringify([]));
-    }
+    await getFavorites();
     createTable(getFilteredComponents(this.value, document.querySelector('input').value.toLowerCase()));
 });
 
