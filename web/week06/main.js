@@ -498,10 +498,16 @@ document.getElementsByClassName('favorite')[0].addEventListener('click', async (
             }
         }
         console.log('Adding Favorite');
+        computerComponents.forEach(computerComponent => {
+            if (computerComponent.name === favoriteObj.category) {
+                favoriteObj.category == computerComponent.type;
+            }
+        });
         console.log(favoriteObj);
         favorites.push(favoriteObj);
         // Hardcoded 1 for test user. Next week this will be dynamic
-        let requestObj = { type: "favorite", user_id: 1, favoriteObj };
+        let requestObj = { type: "favorite", user_id: 1, part_id: favoriteObj.id, category: favoriteObj.category };
+        console.log(requestObj);
         //await Get("dbinsert.php", `x=${JSON.stringify(requestObj)}`);
         favoriteStar.setAttribute('data-star', 'on');
         favoriteStar.innerHTML = '&#9733;';

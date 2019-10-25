@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($insertType == "favorite") {
         $user_id = $obj->user_id;
         $part_id = $obj->part_id;
-        $table_part_name = $obj->table_part_name;
+        $table_part_name = $obj->category;
         $query = `INSERT INTO favorite(user_id, part_id, table_part_name) VALUES('$user_id', '$part_id','$table_part_name'`;
         $statement = $db->prepare($query);
         $statement->execute();
