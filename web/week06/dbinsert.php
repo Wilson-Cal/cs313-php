@@ -10,14 +10,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user_id = $obj->user_id;
         $part_id = $obj->part_id;
         $table_part_name = $obj->category;
-        $query = `INSERT INTO favorite(user_id, part_id, table_part_name) VALUES('$user_id', '$part_id','$table_part_name'`;
-        $statement = $db->prepare($query);
-        $statement->execute();
+        // $query = `INSERT INTO favorite(user_id, part_id, table_part_name) VALUES('$user_id', '$part_id','$table_part_name'`;
+        // $statement = $db->prepare($query);
+        // $statement->execute();
     }
     $dbdata = array();
     // Go through each result
-    while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-        $dbdata[] = $row;
-    }
+    // while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+    //     $dbdata[] = $row;
+    // }
     echo json_encode($dbdata);
 }
