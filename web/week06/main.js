@@ -414,8 +414,8 @@ function sortTable(n) {
 
 async function getFavorites() {
     let requestObj = { type: 'favorite', user_id: 1 };
-    favorites = await Get("dbquery.php", `x=${JSON.stringify(requestObj)}`);
-
+    let response = await Get("dbquery.php", `x=${JSON.stringify(requestObj)}`);
+    favorites = JSON.parse(response);
 }
 
 window.addEventListener('load', async () => {
@@ -471,7 +471,7 @@ document.getElementById('favorites').addEventListener('click', () => {
     document.getElementsByClassName('content')[0].setAttribute('id', 'animate');
     window.setTimeout(() => {
         document.getElementsByClassName('content')[0].setAttribute('id', 'animate-bottom');
-        createTable(getFavorites());
+        createTable(favorites);
         document.querySelector('footer').style.display = 'none';
     }, 75);
 });
