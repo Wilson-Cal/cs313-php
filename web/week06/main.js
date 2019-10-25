@@ -475,7 +475,7 @@ document.getElementById('favorites').addEventListener('click', () => {
     }, 75);
 });
 
-document.getElementsByClassName('favorite')[0].addEventListener('click', () => {
+document.getElementsByClassName('favorite')[0].addEventListener('click', async () => {
     let modalTable = document.getElementById('modal-table-body');
     let itemKeys = modalTable.getElementsByTagName('th');
     let itemValues = modalTable.getElementsByTagName('td');
@@ -498,9 +498,11 @@ document.getElementsByClassName('favorite')[0].addEventListener('click', () => {
             }
         }
         console.log('Adding Favorite');
+        console.log(favoriteObj);
         favorites.push(favoriteObj);
-        localStorage.setItem('favorites', JSON.stringify(favorites));
-        console.log('Current Favorites', getFavorites());
+        // Hardcoded 1 for test user. Next week this will be dynamic
+        let requestObj = { type: "favorite", user_id: 1, favoriteObj };
+        //await Get("dbinsert.php", `x=${JSON.stringify(requestObj)}`);
         favoriteStar.setAttribute('data-star', 'on');
         favoriteStar.innerHTML = '&#9733;';
     } else if (favoriteStar.getAttribute('data-star') === 'on') {
