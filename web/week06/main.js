@@ -415,6 +415,7 @@ function sortTable(n) {
 async function getFavorites() {
     let requestObj = { type: 'favorite', user_id: 1 };
     favorites = await Get("dbquery.php", `x=${JSON.stringify(requestObj)}`);
+
 }
 
 window.addEventListener('load', async () => {
@@ -503,7 +504,6 @@ document.getElementsByClassName('favorite')[0].addEventListener('click', async (
                 favoriteObj.category = computerComponent.type;
             }
         });
-        favorites.push(favoriteObj);
         // Hardcoded 1 for test user. Next week this will be dynamic
         let requestObj = { type: "favorite", user_id: 1, part_id: favoriteObj.id, category: favoriteObj.category };
         await Get("dbinsert.php", `x=${JSON.stringify(requestObj)}`);
