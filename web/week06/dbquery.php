@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             //     $dbdata[] = $row;
             // }
         }
-        echo json_encode($dbdata);
+        echo json_encode($favoriteData);
     } else {
         $tableName = $obj->type;
         $query = "SELECT * from " . $tableName;
