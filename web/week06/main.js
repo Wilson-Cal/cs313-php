@@ -414,7 +414,7 @@ function sortTable(n) {
 
 async function getFavorites() {
     let requestObj = { user_id: 1 };
-    favorites = await Get("dbquery.php", `x=${requestObj}`);
+    favorites = await Get("dbquery.php", `x=${JSON.stringify(requestObj)}`);
 }
 
 window.addEventListener('load', async () => {
