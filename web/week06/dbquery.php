@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         foreach ($favoriteData as $favorite) {
             $table_part_name = $favorite['table_part_name'];
             $part_id = $favorite['part_id'];
-            $query = "SELECT * from $table_part_name WHERE part_id = $part_id";
+            $query = "SELECT * from $table_part_name WHERE id = $part_id";
             $statement = $db->prepare($query);
             $statement->execute();
             // while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
