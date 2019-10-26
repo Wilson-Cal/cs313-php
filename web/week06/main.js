@@ -213,13 +213,11 @@ function makeModal(itemName, item) {
     neweggLink.textContent = itemName;
 
     if (favorites === null) {
-        console.log(favoriteStar);
         favoriteStar.innerHTML = '&#9734;';
         favoriteStar.setAttribute('data-star', 'off');
     } else if (favorites.length > 0) {
         // Search to see if the selected item is a favorite
         let i = favorites.findIndex(favorite => {
-            console.log(favorite.part_name, itemName);
             return favorite.part_name.toLowerCase() === itemName.toLowerCase();
         });
         if (i !== -1) {
@@ -496,14 +494,12 @@ document.getElementsByClassName('favorite')[0].addEventListener('click', async (
         // User wants to add a favorite
         for (let i = 0; i < itemKeys.length; i++) {
             if (itemKeys[i].textContent === 'price') {
-                console.log('hello there');
                 favoriteObj[itemKeys[i].textContent] = itemValues[i].textContent.slice(1);
 
             } else {
                 favoriteObj[itemKeys[i].textContent] = itemValues[i].textContent;
             }
         }
-        console.log('Adding Favorite');
         computerComponents.forEach(computerComponent => {
             if (computerComponent.name === favoriteObj.category) {
                 favoriteObj.category = computerComponent.type;
@@ -516,7 +512,6 @@ document.getElementsByClassName('favorite')[0].addEventListener('click', async (
         await Get("dbinsert.php", `x=${JSON.stringify(requestObj)}`);
     } else if (favoriteStar.getAttribute('data-star') === 'on') {
         // User wants to remove a favorite
-        console.log('Removing Favorite');
         let favorite_id = "";
         favorites.forEach(favorite => {
             if (favorite.part_name.toLowerCase() == document.getElementById('item-name').textContent.toLowerCase()) {
