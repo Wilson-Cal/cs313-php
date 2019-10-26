@@ -528,5 +528,6 @@ document.getElementsByClassName('favorite')[0].addEventListener('click', async (
         favoriteStar.setAttribute('data-star', 'off');
         favoriteStar.innerHTML = '&#9734;';
         await getFavorites();
+        createTable(favorites);
     }
 });
