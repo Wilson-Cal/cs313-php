@@ -487,7 +487,6 @@ document.getElementsByClassName('favorite')[0].addEventListener('click', async (
     let itemKeys = modalTable.getElementsByTagName('th');
     let itemValues = modalTable.getElementsByTagName('td');
     let favoriteStar = document.getElementsByClassName('favorite')[0];
-    let favorites = getFavorites();
     let favoriteObj = {};
 
     if (favorites === null) {
