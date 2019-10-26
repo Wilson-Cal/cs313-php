@@ -470,7 +470,8 @@ document.querySelector('input').addEventListener('change', () => {
     createTable(getFilteredComponents(document.querySelector('select').value, document.querySelector('input').value.toLowerCase()));
 });
 
-document.getElementById('favorites').addEventListener('click', () => {
+document.getElementById('favorites').addEventListener('click', async () => {
+    await getFavorites();
     rowCount = 0;
     document.getElementById('categoryTitle').textContent = 'Favorites';
     document.getElementsByClassName('content')[0].setAttribute('id', 'animate');
@@ -517,12 +518,16 @@ document.getElementsByClassName('favorite')[0].addEventListener('click', async (
     } else if (favoriteStar.getAttribute('data-star') === 'on') {
         // User wants to remove a favorite
         console.log('Removing Favorite');
-        favorites = favorites.filter(favorite => {
-            return favorite.part_name.toLowerCase() !== document.getElementById('item-name').textContent.toLowerCase();
+        let favorite_id = "";
+        favorites.forEach(favorite => {
+            if (favorite.part_name.toLowerCase() == document.getElementById('item-name').textContent.toLowerCase()) {
+                favorite_id = favorite.favorite_id;
+            }
         });
-        localStorage.setItem('favorites', JSON.stringify(favorites));
-        console.log('Current Favorites', getFavorites());
+        let requestObj = { type: "favorite", user_id: 1, favorite_id };
+        await Get('dbdelete.php', `x=${JSON.stringify(requestObj)}`)
         favoriteStar.setAttribute('data-star', 'off');
         favoriteStar.innerHTML = '&#9734;';
+        await getFavorites();
     }
 });
