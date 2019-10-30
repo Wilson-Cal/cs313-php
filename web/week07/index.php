@@ -22,7 +22,7 @@
         </li>
         <input type="search" placeholder="Search...">
         <li id="user_account">
-            Log-In
+            Log In
         </li>
     </ul>
     <h1 class="title">PC Part Index</h1>

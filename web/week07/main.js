@@ -458,6 +458,10 @@ document.querySelector('select').addEventListener('change', () => {
 
 });
 
+document.querySelector('#user_account').addEventListener('click', () => {
+    modal.style.display = "block";
+})
+
 document.querySelector('input').addEventListener('keyup', () => {
     rowCount = 0;
     createTable(getFilteredComponents(document.querySelector('select').value, document.querySelector('input').value.toLowerCase()));
