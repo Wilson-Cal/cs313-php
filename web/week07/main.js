@@ -459,7 +459,8 @@ document.querySelector('select').addEventListener('change', () => {
 });
 
 document.querySelector('#user_account').addEventListener('click', () => {
-    modal.style.display = "block";
+    let signInModal = document.querySelector("#log_in_modal");
+    signInModal.style.display = "block";
 })
 
 document.querySelector('input').addEventListener('keyup', () => {

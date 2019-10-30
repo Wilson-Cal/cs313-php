@@ -54,6 +54,19 @@
             </div>
         </div>
     </div>
+    <div id="log_in_modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="favorite" data-star="off"></span>
+                <span class="close">&times;</span>
+                <h2>Log In</h2>
+            </div>
+            <div class="modal-body">
+                <h3>Email</h3>
+                <h3>Password</h3>
+            </div>
+        </div>
+    </div>
     <footer>
         <ul>
             <li>Created by: Cal Wilson - 2018</li>
