@@ -272,7 +272,7 @@ th.sort-by:after {
 }
 
 input[type=text] {
-    width: 0px;
+    width: 25%;
     color: whitesmoke;
     box-sizing: border-box;
     border: 2px solid #222;
@@ -282,7 +282,7 @@ input[type=text] {
 }
 
 input[type=password] {
-    width: 0px;
+    width: 25%;
     color: whitesmoke;
     box-sizing: border-box;
     border: 2px solid #222;
