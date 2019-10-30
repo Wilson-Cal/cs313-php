@@ -450,7 +450,7 @@ document.getElementsByClassName('close')[0].onclick = () => {
 };
 
 document.getElementsByClassName('close')[1].onclick = () => {
-    modal.style.display = 'none';
+    signInModal.style.display = 'none';
 };
 
 document.querySelector('select').addEventListener('change', () => {
