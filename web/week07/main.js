@@ -53,6 +53,7 @@ let computerComponents = [{
 
 let rowCount = 0;
 let modal = document.getElementById('myModal');
+let signInModal = document.querySelector("#log_in_modal");
 let favorites;
 
 function Get(url, request) {
@@ -439,10 +440,16 @@ window.addEventListener('load', async () => {
 window.onclick = event => {
     if (event.target == modal) {
         modal.style.display = 'none';
+    } else if (event.target == signInModal) {
+        signInModal.style.display = 'none';
     }
 };
 
 document.getElementsByClassName('close')[0].onclick = () => {
+    modal.style.display = 'none';
+};
+
+document.getElementsByClassName('close')[1].onclick = () => {
     modal.style.display = 'none';
 };
 
@@ -459,7 +466,6 @@ document.querySelector('select').addEventListener('change', () => {
 });
 
 document.querySelector('#user_account').addEventListener('click', () => {
-    let signInModal = document.querySelector("#log_in_modal");
     signInModal.style.display = "block";
 })
 
