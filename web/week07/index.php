@@ -66,7 +66,8 @@
                 <input type="text">
                 <h3>Password</h3>
                 <input type="password">
-                <button>Log In</button>
+                <br>
+                <a id="button">Log In</a>
             </div>
         </div>
     </div>
