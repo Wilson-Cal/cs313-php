@@ -271,6 +271,26 @@ th.sort-by:after {
     color: whitesmoke;
 }
 
+input[type=text] {
+    width: 0px;
+    color: whitesmoke;
+    box-sizing: border-box;
+    border: 2px solid #222;
+    font-size: 16px;
+    background-color: #222;
+    padding: 12px 20px 12px 40px;
+}
+
+input[type=password] {
+    width: 0px;
+    color: whitesmoke;
+    box-sizing: border-box;
+    border: 2px solid #222;
+    font-size: 16px;
+    background-color: #222;
+    padding: 12px 20px 12px 40px;
+}
+
 /* Content Container CSS */
 
 .content {

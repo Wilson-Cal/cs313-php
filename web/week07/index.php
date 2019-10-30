@@ -63,9 +63,9 @@
             </div>
             <div class="modal-body">
                 <h3>Email</h3>
-                <input type="text">
+                <input type="text" id="email_input">
                 <h3>Password</h3>
-                <input type="password">
+                <input type="password" id="password_input">
                 <br>
                 <a id="button">Log In</a>
             </div>
