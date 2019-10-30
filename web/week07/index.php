@@ -67,6 +67,9 @@
                 <h3>Password</h3>
                 <input type="password" id="password_input">
                 <br>
+
+            </div>
+            <div class="modal-body">
                 <a id="button">Log In</a>
             </div>
         </div>

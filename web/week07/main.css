@@ -299,6 +299,10 @@ input[type=password] {
 
 /* Modal CSS */
 
+#log_in_modal {
+    text-align: center;
+}
+
 .modal {
     display: none;
     position: fixed;
