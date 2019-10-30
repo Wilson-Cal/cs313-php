@@ -131,6 +131,10 @@ a {
     font-size: 16px;
 }
 
+.nav>li#user_account {
+    float: right;
+}
+
 .nav>li:hover {
     background-color: #111;
     cursor: pointer;
