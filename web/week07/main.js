@@ -1,3 +1,4 @@
+// Computer Components
 let computerComponents = [{
     name: 'All Items'
 },
