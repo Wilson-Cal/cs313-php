@@ -54,6 +54,7 @@ let computerComponents = [{
 let rowCount = 0;
 let modal = document.getElementById('myModal');
 let signInModal = document.querySelector("#log_in_modal");
+let signUpModal = document.querySelector('#sign_up_modal');
 let favorites;
 
 function Get(url, request) {
@@ -442,6 +443,8 @@ window.onclick = event => {
         modal.style.display = 'none';
     } else if (event.target == signInModal) {
         signInModal.style.display = 'none';
+    } else if (event.target == signUpModal) {
+        signUpModal.style.display = 'none';
     }
 };
 
@@ -451,6 +454,10 @@ document.getElementsByClassName('close')[0].onclick = () => {
 
 document.getElementsByClassName('close')[1].onclick = () => {
     signInModal.style.display = 'none';
+};
+
+document.getElementsByClassName('close')[2].onclick = () => {
+    signUpModal.style.display = 'none';
 };
 
 document.querySelector('select').addEventListener('change', () => {
@@ -467,7 +474,12 @@ document.querySelector('select').addEventListener('change', () => {
 
 document.querySelector('#user_account').addEventListener('click', () => {
     signInModal.style.display = "block";
-})
+});
+
+document.querySelector('#sign_up_button').addEventListener('click', () => {
+    signInModal.style.display = "none";
+    signUpModal.style.display = "block";
+});
 
 document.querySelector('input').addEventListener('keyup', () => {
     rowCount = 0;

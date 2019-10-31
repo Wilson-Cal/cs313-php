@@ -57,7 +57,6 @@
     <div id="log_in_modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <span class="favorite" data-star="off"></span>
                 <span class="close">&times;</span>
                 <h2>Log In</h2>
             </div>
@@ -68,7 +67,27 @@
                 <input type="password" id="password_input">
             </div>
             <div class="modal-body">
-                <a id="button">Log In</a>
+                <a class="button" id="log_in_button">Log In</a>
+                <a class="button" id="sign_up_button">Sign Up</a>
+            </div>
+        </div>
+    </div>
+    <div id="sign_up_modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Sign Up</h2>
+            </div>
+            <div class="modal-body">
+                <h3>Username</h3>
+                <input type="text" id="username_sign_up">
+                <h3>Email</h3>
+                <input type="text" id="email_sign_up">
+                <h3>Password</h3>
+                <input type="password" id="password_sign_up">
+            </div>
+            <div class="modal-body">
+                <a class="button" id="sign_up">Sign Up</a>
             </div>
         </div>
     </div>

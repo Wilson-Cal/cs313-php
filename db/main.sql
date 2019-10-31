@@ -11,7 +11,7 @@ DROP TABLE  processor;
 DROP TABLE  storage;
 
 -- Create Tables
-CREATE TABLE public.user_app (id SERIAL NOT NULL PRIMARY KEY,username VARCHAR(100) NOT NULL UNIQUE, email VARCHAR(100) NOT NULL);
+CREATE TABLE public.user_app (id SERIAL NOT NULL PRIMARY KEY,username VARCHAR(100) NOT NULL UNIQUE, email VARCHAR(100) NOT NULL UNIQUE, user_password VARCHAR(100) NOT NULL);
 CREATE TABLE public.favorite (id SERIAL NOT NULL PRIMARY KEY,user_id INT NOT NULL REFERENCES user_app(id), part_id INT NOT NULL, table_part_name VARCHAR(100) NOT NULL);
 CREATE TABLE public.graphics_card (id SERIAL NOT NULL PRIMARY KEY,part_name VARCHAR(100) NOT NULL,price REAL,series VARCHAR(100),memory VARCHAR(100),chipset VARCHAR(100),coreClock REAL);
 CREATE TABLE public.computer_case (id SERIAL NOT NULL PRIMARY KEY,part_name VARCHAR(100) NOT NULL,price REAL,part_type VARCHAR(100),five_and_a_quarter_inch_bays INT,three_and_a_quarter_inch_bays INT,powerSupply VARCHAR(100));
@@ -23,7 +23,7 @@ CREATE TABLE public.processor (id SERIAL NOT NULL PRIMARY KEY,part_name VARCHAR(
 CREATE TABLE public.storage (id SERIAL NOT NULL PRIMARY KEY,part_name VARCHAR(100) NOT NULL,price REAL,series VARCHAR(100),form VARCHAR(100),part_type VARCHAR(100),capacity VARCHAR(100),cache VARCHAR(100),pricePerGB REAL);
 
 -- Insert Test User
-INSERT INTO user_app(username, email) VALUES('test_user', 'test_user@gmail.com');
+INSERT INTO user_app(username, email) VALUES('test_user', 'test_user@gmail.com', '1234567890');
 
 -- Insert Computer Cases
 INSERT INTO computer_case(part_name,price,part_type,five_and_a_quarter_inch_bays,three_and_a_quarter_inch_bays,powerSupply) VALUES ('NZXT S340 (Black)',59.99,'ATX Mid Tower',0,3,'None');
