@@ -68,7 +68,7 @@
                 <input type="password" id="password_input">
             </div>
             <div class="modal-body">
-                <a id="log_in_button">Log In</a>
+                <a id="log_in_butto">Log In</a>
             </div>
         </div>
     </div>
