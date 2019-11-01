@@ -532,15 +532,18 @@ document.querySelector('input').addEventListener('change', () => {
 });
 
 document.getElementById('favorites').addEventListener('click', async () => {
-    await getFavorites();
-    rowCount = 0;
-    document.getElementById('categoryTitle').textContent = 'Favorites';
-    document.getElementsByClassName('content')[0].setAttribute('id', 'animate');
-    window.setTimeout(() => {
-        document.getElementsByClassName('content')[0].setAttribute('id', 'animate-bottom');
-        createTable(favorites);
-        document.querySelector('footer').style.display = 'none';
-    }, 75);
+    let check = await Get("loggedInCheck.php");
+    if (check) {
+        await getFavorites();
+        rowCount = 0;
+        document.getElementById('categoryTitle').textContent = 'Favorites';
+        document.getElementsByClassName('content')[0].setAttribute('id', 'animate');
+        window.setTimeout(() => {
+            document.getElementsByClassName('content')[0].setAttribute('id', 'animate-bottom');
+            createTable(favorites);
+            document.querySelector('footer').style.display = 'none';
+        }, 75);
+    }
 });
 
 document.getElementsByClassName('favorite')[0].addEventListener('click', async () => {
@@ -550,42 +553,45 @@ document.getElementsByClassName('favorite')[0].addEventListener('click', async (
     let favoriteStar = document.getElementsByClassName('favorite')[0];
     let favoriteObj = {};
 
-    if (favorites === null) {
-        favorites = [];
-    }
-    if (favoriteStar.getAttribute('data-star') === 'off') {
-        // User wants to add a favorite
-        for (let i = 0; i < itemKeys.length; i++) {
-            if (itemKeys[i].textContent === 'price') {
-                favoriteObj[itemKeys[i].textContent] = itemValues[i].textContent.slice(1);
-
-            } else {
-                favoriteObj[itemKeys[i].textContent] = itemValues[i].textContent;
-            }
+    let check = await Get("loggedInCheck.php");
+    if (check) {
+        if (favorites === null) {
+            favorites = [];
         }
-        computerComponents.forEach(computerComponent => {
-            if (computerComponent.name === favoriteObj.category) {
-                favoriteObj.category = computerComponent.type;
+        if (favoriteStar.getAttribute('data-star') === 'off') {
+            // User wants to add a favorite
+            for (let i = 0; i < itemKeys.length; i++) {
+                if (itemKeys[i].textContent === 'price') {
+                    favoriteObj[itemKeys[i].textContent] = itemValues[i].textContent.slice(1);
+
+                } else {
+                    favoriteObj[itemKeys[i].textContent] = itemValues[i].textContent;
+                }
             }
-        });
-        // Hardcoded 1 for test user. Next week this will be dynamic
-        let requestObj = { type: "favorite", part_id: favoriteObj.id, category: favoriteObj.category };
-        favoriteStar.setAttribute('data-star', 'on');
-        favoriteStar.innerHTML = '&#9733;';
-        await Get("dbinsert.php", `x=${JSON.stringify(requestObj)}`);
-    } else if (favoriteStar.getAttribute('data-star') === 'on') {
-        // User wants to remove a favorite
-        let favorite_id = "";
-        favorites.forEach(favorite => {
-            if (favorite.part_name.toLowerCase() == document.getElementById('item-name').textContent.toLowerCase()) {
-                favorite_id = favorite.favorite_id;
-            }
-        });
-        let requestObj = { type: "favorite", user_id: 1, favorite_id };
-        await Get('dbdelete.php', `x=${JSON.stringify(requestObj)}`)
-        favoriteStar.setAttribute('data-star', 'off');
-        favoriteStar.innerHTML = '&#9734;';
-        await getFavorites();
-        createTable(favorites);
+            computerComponents.forEach(computerComponent => {
+                if (computerComponent.name === favoriteObj.category) {
+                    favoriteObj.category = computerComponent.type;
+                }
+            });
+            // Hardcoded 1 for test user. Next week this will be dynamic
+            let requestObj = { type: "favorite", part_id: favoriteObj.id, category: favoriteObj.category };
+            favoriteStar.setAttribute('data-star', 'on');
+            favoriteStar.innerHTML = '&#9733;';
+            await Get("dbinsert.php", `x=${JSON.stringify(requestObj)}`);
+        } else if (favoriteStar.getAttribute('data-star') === 'on') {
+            // User wants to remove a favorite
+            let favorite_id = "";
+            favorites.forEach(favorite => {
+                if (favorite.part_name.toLowerCase() == document.getElementById('item-name').textContent.toLowerCase()) {
+                    favorite_id = favorite.favorite_id;
+                }
+            });
+            let requestObj = { type: "favorite", user_id: 1, favorite_id };
+            await Get('dbdelete.php', `x=${JSON.stringify(requestObj)}`)
+            favoriteStar.setAttribute('data-star', 'off');
+            favoriteStar.innerHTML = '&#9734;';
+            await getFavorites();
+            createTable(favorites);
+        }
     }
 });

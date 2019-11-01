@@ -155,6 +155,7 @@ a {
 
 .nav>li#user_account {
     float: right;
+    display: none;
 }
 
 .nav>li#user_account_log_out {
