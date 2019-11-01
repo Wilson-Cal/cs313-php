@@ -38,10 +38,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $statement = $db->prepare($query);
         $statement->execute();
         $tempPassword = "";
+        $tempUserId = "";
         while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
             $tempPassword = $row['user_password'];
+            $tempUserId = $row['id'];
         }
-        echo password_verify($password, $tempPassword);
+        $verify = password_verify($password, $tempPassword);
+        if ($verify) {
+            setcookie("user_id", $tempUserId);
+        }
+        echo $verify;
     } else {
         $tableName = $obj->type;
         $query = "SELECT * from " . $tableName;
