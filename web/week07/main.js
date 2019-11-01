@@ -600,12 +600,12 @@ document.getElementById('favorites').addEventListener('click', async () => {
     let content = document.querySelector('.content');
     let footer = document.querySelector('footer');
     let check = await Get("loggedInCheck.php");
-    loader.style.display = "none";
     if (check) {
         content.style.display = "none";
         footer.style.display = "none";
         loader.style.display = "block";
         await getFavorites();
+        loader.style.display = "none";
         rowCount = 0;
         document.getElementById('categoryTitle').textContent = 'Favorites';
         document.getElementsByClassName('content')[0].setAttribute('id', 'animate');
