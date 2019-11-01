@@ -496,8 +496,17 @@ document.querySelector('#user_account').addEventListener('click', () => {
 });
 
 document.querySelector('#user_account_log_out').addEventListener('click', async () => {
+    let loader = document.getElementById('loader');
+    let content = document.querySelector('.content');
+    let footer = document.querySelector('footer');
+    content.style.display = "none";
+    footer.style.display = "none";
+    loader.style.display = "block";
     await Get("logout.php");
     await checkLoggedIn();
+    loader.style.display = "none";
+    content.style.display = "block";
+    footer.style.display = "block";
 });
 
 document.querySelector('#sign_up_button').addEventListener('click', () => {
