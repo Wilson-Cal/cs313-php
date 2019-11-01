@@ -532,7 +532,10 @@ document.querySelector('input').addEventListener('change', () => {
 });
 
 document.getElementById('favorites').addEventListener('click', async () => {
+    let loader = document.getElementById('loader');
+    loader.style.display = "block";
     let check = await Get("loggedInCheck.php");
+    loader.style.display = "none";
     if (check) {
         await getFavorites();
         rowCount = 0;
@@ -552,7 +555,6 @@ document.getElementsByClassName('favorite')[0].addEventListener('click', async (
     let itemValues = modalTable.getElementsByTagName('td');
     let favoriteStar = document.getElementsByClassName('favorite')[0];
     let favoriteObj = {};
-
     let check = await Get("loggedInCheck.php");
     if (check) {
         if (favorites === null) {
