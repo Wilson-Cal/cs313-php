@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $obj = json_decode($_POST["x"], false);
     $insertType = $obj->type;
     if ($insertType == "favorite") {
-        $user_id = $_SESSION["user_id"];
+        $user_id = $_COOKIE["user_id"];
         $part_id = $obj->part_id;
         $table_part_name = $obj->category;
         $query = "INSERT INTO favorite(user_id, part_id, table_part_name) VALUES('$user_id', '$part_id','$table_part_name')";
@@ -30,6 +30,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             setcookie("user_id", $row["id"]);
         }
         setcookie("logged_in", true);
-        echo $_COOKIE["user_id"];
     }
 }
