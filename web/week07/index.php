@@ -25,13 +25,12 @@ session_start();
             Favorites
         </li>
         <input type="search" placeholder="Search...">
-        <?php
-        if (isset($_COOKIE["user_id"])) {
-            echo '<li id="user_account_log_out">Log Out</li>';
-        } else {
-            echo '<li id="user_account">Log In</li>';
-        }
-        ?>
+        <li id="user_account">
+            Log In
+        </li>
+        <li id="user_account_log_out">
+            Log Out
+        </li>
     </ul>
     <h1 class="title">PC Part Index</h1>
     <div id="loader"></div>

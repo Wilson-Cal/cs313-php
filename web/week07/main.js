@@ -58,7 +58,7 @@ let signInModal = document.querySelector("#log_in_modal");
 let signUpModal = document.querySelector('#sign_up_modal');
 let favorites = [];
 
-function Get(url, request) {
+function Get(url, request = "") {
     return new Promise((resolve) => {
         let xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
@@ -424,6 +424,19 @@ async function getFavorites() {
     favorites = JSON.parse(response);
 }
 
+async function checkLoggedIn() {
+    let loginButton = document.querySelector('#user_account');
+    let logoutButton = document.querySelector('#user_account_log_out');
+    let check = await Get("loggedInCheck.php");
+    if (check) {
+        loginButton.style.display = "none";
+        logoutButton.style.display = "block";
+    } else {
+        loginButton.style.display = "block";
+        logoutButton.style.display = "none";
+    }
+}
+
 window.addEventListener('load', async () => {
     // Get the data for each component
     computerComponents.forEach(component => {
@@ -433,6 +446,7 @@ window.addEventListener('load', async () => {
             }).catch(console.error);
         }
     });
+    checkLoggedIn()
     setCategoriesDropdown();
     setCategoryTitle();
     getFavorites();
