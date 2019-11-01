@@ -27,9 +27,9 @@ session_start();
         <input type="search" placeholder="Search...">
         <?php
         if (isset($_COOKIE["user_id"])) {
-            echo '<li id="user_account">Log In</li>';
-        } else {
             echo '<li id="user_account_log_out">Log Out</li>';
+        } else {
+            echo '<li id="user_account">Log In</li>';
         }
         ?>
     </ul>
