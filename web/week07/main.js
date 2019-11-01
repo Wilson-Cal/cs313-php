@@ -533,9 +533,12 @@ document.querySelector('input').addEventListener('change', () => {
 
 document.getElementById('favorites').addEventListener('click', async () => {
     let loader = document.getElementById('loader');
+    let content = document.querySelector('.content');
+    content.style.display = "none";
     loader.style.display = "block";
     let check = await Get("loggedInCheck.php");
     loader.style.display = "none";
+    content.style.display = "block";
     if (check) {
         await getFavorites();
         rowCount = 0;
