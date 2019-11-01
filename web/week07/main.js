@@ -434,9 +434,11 @@ async function checkLoggedIn() {
     if (check) {
         loginButton.style.display = "none";
         logoutButton.style.display = "block";
+        return true;
     } else {
         loginButton.style.display = "block";
         logoutButton.style.display = "none";
+        return false;
     }
 }
 
@@ -529,20 +531,21 @@ document.querySelector('#log_in_button').addEventListener('click', async () => {
         content.style.display = "none";
         footer.style.display = "none";
         loader.style.display = "block";
+        signInModal.style.display = "none";
         let requestObj = { type: "login", email: email.value, password: password.value };
         let check = await Get("dbquery.php", `x=${JSON.stringify(requestObj)}`);
         if (check) {
             check = await checkLoggedIn();
             if (check) {
-                signInModal.style.display = "none";
                 email.value = "";
                 password.value = "";
             }
             else {
+                signInModal.style.display = "block";
                 errorMessage.innerHTML = "Error Logging In. Please try again later...";
             }
-        }
-        else {
+        } else {
+            signInModal.style.display = "block";
             errorMessage.innerHTML = "Invalid username or password";
         }
     }
