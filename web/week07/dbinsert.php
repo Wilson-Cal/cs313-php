@@ -29,6 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
             $dbdata[] = $row;
         }
-        echo json_encode($dbdata);
+        $_SESSION["user_id"] = $dbdata[0]->id;
+        $_SESSION["logged_in"] = true;
     }
 }

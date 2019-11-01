@@ -1,3 +1,9 @@
+<?php
+// Start the session
+session_start();
+$_SESSION["user_id"] = "";
+$_SESSION["logged_in"] = false;
+?>
 <!DOCTYPE html>
 <html>
 
