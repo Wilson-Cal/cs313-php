@@ -524,7 +524,7 @@ document.querySelector('#log_in_button').addEventListener('click', async () => {
     let content = document.querySelector('.content');
     let footer = document.querySelector('footer');
 
-    if (email && password) {
+    if (email.value && password.value) {
         errorMessage.innerHTML = "";
         content.style.display = "none";
         footer.style.display = "none";
