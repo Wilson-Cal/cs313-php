@@ -29,6 +29,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
             setcookie("user_id", $row["id"]);
         }
-        setcookie("logged_in", true);
     }
 }
