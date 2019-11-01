@@ -450,7 +450,7 @@ window.addEventListener('load', async () => {
     checkLoggedIn()
     setCategoriesDropdown();
     setCategoryTitle();
-    let check = Get("loggedInCheck.php");
+    let check = await Get("loggedInCheck.php");
     if (check) {
         getFavorites();
     }
