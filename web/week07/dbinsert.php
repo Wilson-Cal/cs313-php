@@ -21,11 +21,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $query = "INSERT INTO user_app(username, email, user_password) VALUES('$username', '$email','$hashed_password')";
         $statement = $db->prepare($query);
         $statement->execute();
+        $query = "SELECT id from user_app WHERE email = '$email'";
+        $statement = $db->prepare($query);
+        $statement->execute();
+        $dbdata = array();
+        // Go through each result
+        while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+            $dbdata[] = $row;
+        }
+        echo json_encode($dbdata);
     }
-    $dbdata = array();
-    // Go through each result
-    // while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-    //     $dbdata[] = $row;
-    // }
-    echo json_encode($dbdata);
 }

@@ -495,6 +495,7 @@ document.querySelector('#sign_up').addEventListener('click', async () => {
         username.value = "";
         password.value = "";
         signUpModal.style.display = "none";
+        console.log(result);
     } else {
         errorMessage.innerHTML = "Please Fill Out All Fields";
     }
