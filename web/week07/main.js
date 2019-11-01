@@ -482,6 +482,23 @@ document.querySelector('#sign_up_button').addEventListener('click', () => {
     signUpModal.style.display = "block";
 });
 
+document.querySelector('#sign_up').addEventListener('click', () => {
+    let email = document.querySelector("#email_sign_up");
+    let username = document.querySelector("#username_sign_up");
+    let password = document.querySelector("#password_sign_up");
+    let errorMessage = document.querySelector('#signupError');
+    let requestObj = { type: "user", email: email.value, username: username.value, password: password.value };
+    if (email.value && username.value && password.value) {
+        errorMessage.innerHTML = "";
+        email.value = "";
+        username.value = "";
+        password.value = "";
+        Get('dbinsert.php', `x=${JSON.stringify(requestObj)}`);
+    } else {
+        errorMessage.innerHTML = "Please Fill Out All Fields";
+    }
+});
+
 document.querySelector('input').addEventListener('keyup', () => {
     rowCount = 0;
     createTable(getFilteredComponents(document.querySelector('select').value, document.querySelector('input').value.toLowerCase()));

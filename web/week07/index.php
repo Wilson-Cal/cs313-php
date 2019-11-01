@@ -88,6 +88,7 @@
             </div>
             <div class="modal-body">
                 <a class="button" id="sign_up">Sign Up</a>
+                <p id="signupError"></p>
             </div>
         </div>
     </div>
