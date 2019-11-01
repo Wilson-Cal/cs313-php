@@ -27,9 +27,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $dbdata = array();
         // Go through each result
         while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-            $dbdata[] = $row;
+            $_SESSION["user_id"] = $row["id"];
         }
-        $_SESSION["user_id"] = $dbdata[0]->id;
         $_SESSION["logged_in"] = true;
     }
 }

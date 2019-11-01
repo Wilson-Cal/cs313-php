@@ -56,7 +56,7 @@ let rowCount = 0;
 let modal = document.getElementById('myModal');
 let signInModal = document.querySelector("#log_in_modal");
 let signUpModal = document.querySelector('#sign_up_modal');
-let favorites;
+let favorites = [];
 
 function Get(url, request) {
     return new Promise((resolve) => {
