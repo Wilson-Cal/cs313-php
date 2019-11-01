@@ -273,6 +273,8 @@ function createTable(filteredComponents) {
         return;
     }
     if (filteredComponents.length === 0) {
+        content.style.display = "block";
+        footer.style.display = "block";
         resultsMsg.textContent = `${filteredComponents.length} results found`;
         resultsMsg.setAttribute('id', 'resultsMsg');
         categoryTitle.appendChild(resultsMsg);
