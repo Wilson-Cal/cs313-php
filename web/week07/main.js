@@ -656,10 +656,10 @@ document.getElementsByClassName('favorite')[0].addEventListener('click', async (
             let favorite_id = "";
             favorites.forEach(favorite => {
                 if (favorite.part_name.toLowerCase() == document.getElementById('item-name').textContent.toLowerCase()) {
+                    console.log(favorite.part_name.toLowerCase(), document.getElementById('item-name').textContent.toLowerCase());
                     favorite_id = favorite.favorite_id;
                 }
             });
-            console.log(favorite_id);
             let requestObj = { type: "favorite", favorite_id };
             await Get('dbdelete.php', `x=${JSON.stringify(requestObj)}`)
             favoriteStar.setAttribute('data-star', 'off');
