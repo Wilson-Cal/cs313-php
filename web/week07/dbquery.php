@@ -7,8 +7,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $obj = json_decode($_POST["x"], false);
     $queryType = $obj->type;
     if ($queryType == "favorite") {
-        $user_id = $_SESSION["user_id"];
-        echo $_SESSION["user_id"];
+        $user_id = $_COOKIE["user_id"];
+        echo $_COOKIE["user_id"];
         // $query = "SELECT * from favorite WHERE user_id = $user_id";
         // $statement = $db->prepare($query);
         // $statement->execute();

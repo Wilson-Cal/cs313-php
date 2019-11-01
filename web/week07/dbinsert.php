@@ -27,9 +27,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $dbdata = array();
         // Go through each result
         while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-            $_SESSION["user_id"] = $row["id"];
+            $_COOKIE["user_id"] = $row["id"];
         }
-        $_SESSION["logged_in"] = true;
-        echo $_SESSION["user_id"];
+        $_COOKIE["logged_in"] = true;
+        echo $_COOKIE["user_id"];
     }
 }
