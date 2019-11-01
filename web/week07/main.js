@@ -495,6 +495,11 @@ document.querySelector('#user_account').addEventListener('click', () => {
     signInModal.style.display = "block";
 });
 
+document.querySelector('#user_account_log_out').addEventListener('click', async () => {
+    await Get("logout.php");
+    await checkLoggedIn();
+});
+
 document.querySelector('#sign_up_button').addEventListener('click', () => {
     signInModal.style.display = "none";
     signUpModal.style.display = "block";
