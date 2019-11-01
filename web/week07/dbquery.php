@@ -31,6 +31,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
         echo json_encode($dbdata);
+    } else if ($queryType == "login") {
+        $email = $obj->email;
+        $password = $obj->password;
+        $query = "SELECT * from user_app WHERE email = '$email'";
+        $statement = $db->prepare($query);
+        $statement->execute();
+        $tempPassword = "";
+        while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+            $tempPassword = $row['password'];
+        }
+        echo password_verify($password, $tempPassword);
     } else {
         $tableName = $obj->type;
         $query = "SELECT * from " . $tableName;

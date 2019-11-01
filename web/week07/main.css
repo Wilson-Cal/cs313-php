@@ -45,6 +45,10 @@ p {
     color: red;
 }
 
+#loginError {
+    color: red;
+}
+
 /* Anchor CSS */
 
 a {

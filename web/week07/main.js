@@ -516,6 +516,44 @@ document.querySelector('#sign_up_button').addEventListener('click', () => {
     signUpModal.style.display = "block";
 });
 
+document.querySelector('#log_in_button').addEventListener('click', async () => {
+    let email = document.querySelector("#email_input");
+    let password = document.querySelector("#password_input");
+    let errorMessage = document.querySelector("#login_error");
+    let loader = document.getElementById('loader');
+    let content = document.querySelector('.content');
+    let footer = document.querySelector('footer');
+
+    if (email && password) {
+        errorMessage.innerHTML = "";
+        content.style.display = "none";
+        footer.style.display = "none";
+        loader.style.display = "block";
+        let requestObj = { type: "login", email: email.value, password: password.value };
+        let check = await Get("dbquery.php", `x=${JSON.stringify(requestObj)}`);
+        if (check) {
+            check = await checkLoggedIn();
+            if (check) {
+                signInModal.style.display = "none";
+                email.value = "";
+                password.value = "";
+            }
+            else {
+                errorMessage.innerHTML = "Error Logging In. Please try again later...";
+            }
+        }
+        else {
+            errorMessage.innerHTML = "Invalid username or password";
+        }
+    }
+    else {
+        errorMessage.innerHTML = "Please Fill Out All Fields";
+    }
+    content.style.display = "block";
+    footer.style.display = "block";
+    loader.style.display = "none";
+});
+
 document.querySelector('#sign_up').addEventListener('click', async () => {
     let email = document.querySelector("#email_sign_up");
     let username = document.querySelector("#username_sign_up");

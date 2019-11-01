@@ -76,6 +76,7 @@ session_start();
             <div class="modal-body">
                 <a class="button" id="log_in_button">Log In</a>
                 <a class="button" id="sign_up_button">Sign Up</a>
+                <p id="loginError"></p>
             </div>
         </div>
     </div>
