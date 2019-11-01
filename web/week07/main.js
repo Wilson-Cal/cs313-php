@@ -599,12 +599,12 @@ document.getElementById('favorites').addEventListener('click', async () => {
     let loader = document.getElementById('loader');
     let content = document.querySelector('.content');
     let footer = document.querySelector('footer');
-    content.style.display = "none";
-    footer.style.display = "none";
-    loader.style.display = "block";
     let check = await Get("loggedInCheck.php");
     loader.style.display = "none";
     if (check) {
+        content.style.display = "none";
+        footer.style.display = "none";
+        loader.style.display = "block";
         await getFavorites();
         rowCount = 0;
         document.getElementById('categoryTitle').textContent = 'Favorites';
