@@ -157,6 +157,11 @@ a {
     float: right;
 }
 
+.nav>li#user_account_log_out {
+    float: right;
+    display: none;
+}
+
 .nav>li:hover {
     background-color: #111;
     cursor: pointer;

@@ -30,6 +30,9 @@ $_SESSION["logged_in"] = false;
         <li id="user_account">
             Log In
         </li>
+        <li id="user_account_log_out">
+            Log Out
+        </li>
     </ul>
     <h1 class="title">PC Part Index</h1>
     <div id="loader"></div>

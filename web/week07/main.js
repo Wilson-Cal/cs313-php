@@ -487,6 +487,8 @@ document.querySelector('#sign_up').addEventListener('click', async () => {
     let username = document.querySelector("#username_sign_up");
     let password = document.querySelector("#password_sign_up");
     let errorMessage = document.querySelector('#signupError');
+    let loginButton = document.querySelector('#user_account');
+    let logoutButton = document.querySelector('#user_account_log_out');
     let requestObj = { type: "user", email: email.value, username: username.value, password: password.value };
     if (email.value && username.value && password.value) {
         errorMessage.innerHTML = "";
@@ -495,7 +497,11 @@ document.querySelector('#sign_up').addEventListener('click', async () => {
         username.value = "";
         password.value = "";
         signUpModal.style.display = "none";
-        console.log(result);
+        loginButton.style.display = "none";
+        logoutButton.style.display = "block";
+        logoutButton.addEventListener("click", () => {
+            // Call logout function
+        })
     } else {
         errorMessage.innerHTML = "Please Fill Out All Fields";
     }
