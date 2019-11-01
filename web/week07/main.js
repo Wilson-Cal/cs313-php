@@ -660,7 +660,7 @@ document.getElementsByClassName('favorite')[0].addEventListener('click', async (
                     favorite_id = favorite.favorite_id;
                 }
             });
-            let requestObj = { type: "favorite", user_id: 1, favorite_id };
+            let requestObj = { type: "favorite", favorite_id };
             await Get('dbdelete.php', `x=${JSON.stringify(requestObj)}`)
             favoriteStar.setAttribute('data-star', 'off');
             favoriteStar.innerHTML = '&#9734;';
