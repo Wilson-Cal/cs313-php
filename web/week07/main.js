@@ -507,11 +507,13 @@ document.querySelector('#user_account_log_out').addEventListener('click', async 
     footer.style.display = "none";
     loader.style.display = "block";
     await Get("logout.php");
-    await checkLoggedIn();
+    let check = await checkLoggedIn();
+    if (!check) {
+        favorites = [];
+    }
     loader.style.display = "none";
     content.style.display = "block";
     footer.style.display = "block";
-    favorites = [];
 });
 
 document.querySelector('#sign_up_button').addEventListener('click', () => {
