@@ -13,6 +13,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $query = "INSERT INTO favorite(user_id, part_id, table_part_name) VALUES('$user_id', '$part_id','$table_part_name')";
         $statement = $db->prepare($query);
         $statement->execute();
+    } else if ($insertType == "user") {
+        $email = $obj->email;
+        $username = $obj->username;
+        $password = $obj->password;
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        $query = "INSERT INTO user(username, email, user_password) VALUES('$username', '$email','$hashed_password')";
+        $statement = $db->prepare($query);
+        $statement->execute();
     }
     $dbdata = array();
     // Go through each result

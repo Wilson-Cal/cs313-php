@@ -482,7 +482,7 @@ document.querySelector('#sign_up_button').addEventListener('click', () => {
     signUpModal.style.display = "block";
 });
 
-document.querySelector('#sign_up').addEventListener('click', () => {
+document.querySelector('#sign_up').addEventListener('click', async () => {
     let email = document.querySelector("#email_sign_up");
     let username = document.querySelector("#username_sign_up");
     let password = document.querySelector("#password_sign_up");
@@ -490,10 +490,10 @@ document.querySelector('#sign_up').addEventListener('click', () => {
     let requestObj = { type: "user", email: email.value, username: username.value, password: password.value };
     if (email.value && username.value && password.value) {
         errorMessage.innerHTML = "";
+        let result = await Get('dbinsert.php', `x=${JSON.stringify(requestObj)}`);
         email.value = "";
         username.value = "";
         password.value = "";
-        Get('dbinsert.php', `x=${JSON.stringify(requestObj)}`);
     } else {
         errorMessage.innerHTML = "Please Fill Out All Fields";
     }
