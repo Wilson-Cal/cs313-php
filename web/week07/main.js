@@ -511,6 +511,7 @@ document.querySelector('#user_account_log_out').addEventListener('click', async 
     loader.style.display = "none";
     content.style.display = "block";
     footer.style.display = "block";
+    favorites = [];
 });
 
 document.querySelector('#sign_up_button').addEventListener('click', () => {
