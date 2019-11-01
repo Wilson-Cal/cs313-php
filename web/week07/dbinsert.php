@@ -18,9 +18,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username = $obj->username;
         $password = $obj->password;
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-        $query = "INSERT INTO user(username, email, user_password) VALUES('$username', '$email','$hashed_password')";
-        $statement = $db->prepare($query);
-        $statement->execute();
+        // $query = "INSERT INTO user(username, email, user_password) VALUES('$username', '$email','$hashed_password')";
+        // $statement = $db->prepare($query);
+        // $statement->execute();
     }
     $dbdata = array();
     // Go through each result
