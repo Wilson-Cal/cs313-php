@@ -30,5 +30,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["user_id"] = $row["id"];
         }
         $_SESSION["logged_in"] = true;
+        echo $_SESSION["user_id"];
     }
 }
