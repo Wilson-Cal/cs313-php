@@ -615,7 +615,6 @@ document.getElementById('favorites').addEventListener('click', async () => {
             document.querySelector('footer').style.display = 'none';
         }, 75);
     } else {
-        createTable(favorites);
         content.style.display = "block";
         footer.style.display = "block";
     }
