@@ -450,7 +450,10 @@ window.addEventListener('load', async () => {
     checkLoggedIn()
     setCategoriesDropdown();
     setCategoryTitle();
-    getFavorites();
+    let check = Get("loggedInCheck.php");
+    if (check) {
+        getFavorites();
+    }
     createTable(getFilteredComponents(this.value, document.querySelector('input').value.toLowerCase()));
 });
 
@@ -551,6 +554,9 @@ document.getElementById('favorites').addEventListener('click', async () => {
             createTable(favorites);
             document.querySelector('footer').style.display = 'none';
         }, 75);
+    } else {
+        content.style.display = "block";
+        footer.style.display = "block";
     }
 });
 
