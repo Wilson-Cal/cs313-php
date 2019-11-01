@@ -8,6 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $queryType = $obj->type;
     if ($queryType == "favorite") {
         $user_id = $_SESSION["user_id"];
+        echo $user_id;
         // $query = "SELECT * from favorite WHERE user_id = $user_id";
         // $statement = $db->prepare($query);
         // $statement->execute();
