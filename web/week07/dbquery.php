@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $statement->execute();
         $tempPassword = "";
         while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-            $tempPassword = $row['password'];
+            $tempPassword = $row['user_password'];
         }
         echo password_verify($password, $tempPassword);
     } else {
