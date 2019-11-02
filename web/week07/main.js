@@ -58,6 +58,7 @@ let signInModal = document.querySelector("#log_in_modal");
 let signUpModal = document.querySelector('#sign_up_modal');
 let favorites = [];
 
+// This function is responsible for making any HTTP calls to APIs or PHP files
 function Get(url, request = "") {
     return new Promise((resolve) => {
         let xhttp = new XMLHttpRequest();
@@ -72,6 +73,7 @@ function Get(url, request = "") {
     });
 }
 
+// Creates the dropdown in the nav bar
 function setCategoriesDropdown() {
     let categories = document.querySelector('[id=categories]');
     computerComponents.forEach(component => {
@@ -82,10 +84,12 @@ function setCategoriesDropdown() {
     });
 }
 
+// Sets the categories title
 function setCategoryTitle(category = document.querySelector('select').value) {
     document.querySelector('h2').textContent = category;
 }
 
+// Filters components if a search or category was provided
 function getFilteredComponents(category, q) {
     let loader = document.getElementById('loader');
     let filteredComponents = [];
@@ -171,6 +175,7 @@ function getFilteredComponents(category, q) {
     }
 }
 
+// Makes the modal for a componenet to show its information
 function makeModal(itemName, item) {
     let amazonLink = document.getElementById('amazon-link');
     let neweggLink = document.getElementById('newegg-link');
@@ -243,6 +248,7 @@ function makeModal(itemName, item) {
     modal.style.display = 'block';
 }
 
+// Function that creates the various tables found in the application
 function createTable(filteredComponents) {
     let content = document.querySelector('[class=content]');
     let footer = document.getElementsByTagName('footer')[0];
@@ -357,6 +363,7 @@ function createTable(filteredComponents) {
     footer.style.display = 'block';
 }
 
+// Sorts the table when the user clicks a table header
 function sortTable(n) {
     let table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0,
         xNum, yNum;
@@ -421,12 +428,14 @@ function sortTable(n) {
     }
 }
 
+// Gets the users favorites from the database
 async function getFavorites() {
     let requestObj = { type: 'favorite' };
     let response = await Get("dbquery.php", `x=${JSON.stringify(requestObj)}`);
     favorites = JSON.parse(response);
 }
 
+// Checks if the user is currently logged in
 async function checkLoggedIn() {
     let loginButton = document.querySelector('#user_account');
     let logoutButton = document.querySelector('#user_account_log_out');
@@ -442,6 +451,7 @@ async function checkLoggedIn() {
     }
 }
 
+// Event listener that is run after the page loads
 window.addEventListener('load', async () => {
     // Get the data for each component
     computerComponents.forEach(component => {
@@ -461,6 +471,7 @@ window.addEventListener('load', async () => {
     createTable(getFilteredComponents(this.value, document.querySelector('input').value.toLowerCase()));
 });
 
+// Allows the user to click outside the various modals to close them
 window.onclick = event => {
     if (event.target == modal) {
         modal.style.display = 'none';
@@ -471,6 +482,7 @@ window.onclick = event => {
     }
 };
 
+// Event Listeners to close the various modals
 document.getElementsByClassName('close')[0].onclick = () => {
     modal.style.display = 'none';
 };
@@ -483,6 +495,7 @@ document.getElementsByClassName('close')[2].onclick = () => {
     signUpModal.style.display = 'none';
 };
 
+// Event listener for when the user changes the value in the category dropdown
 document.querySelector('select').addEventListener('change', () => {
     rowCount = 0;
     document.getElementsByClassName('content')[0].setAttribute('id', 'animate');
@@ -495,10 +508,12 @@ document.querySelector('select').addEventListener('change', () => {
 
 });
 
+// Event listener for when the user clicks the log in button
 document.querySelector('#user_account').addEventListener('click', () => {
     signInModal.style.display = "block";
 });
 
+// Event listener for when the user clicks the log out button
 document.querySelector('#user_account_log_out').addEventListener('click', async () => {
     let loader = document.getElementById('loader');
     let content = document.querySelector('.content');
@@ -516,11 +531,13 @@ document.querySelector('#user_account_log_out').addEventListener('click', async 
     footer.style.display = "block";
 });
 
+// Event listener for when the user wants to create an account
 document.querySelector('#sign_up_button').addEventListener('click', () => {
     signInModal.style.display = "none";
     signUpModal.style.display = "block";
 });
 
+// Event listener for when the user clicks the log in button after inputing their log in information
 document.querySelector('#log_in_button').addEventListener('click', async () => {
     let email = document.querySelector("#email_input");
     let password = document.querySelector("#password_input");
@@ -560,6 +577,7 @@ document.querySelector('#log_in_button').addEventListener('click', async () => {
     loader.style.display = "none";
 });
 
+// Event listener for when the user clicks the sign up button
 document.querySelector('#sign_up').addEventListener('click', async () => {
     let email = document.querySelector("#email_sign_up");
     let username = document.querySelector("#username_sign_up");
@@ -585,16 +603,19 @@ document.querySelector('#sign_up').addEventListener('click', async () => {
     }
 });
 
+// Event listener for when the user inputs text into the search bar
 document.querySelector('input').addEventListener('keyup', () => {
     rowCount = 0;
     createTable(getFilteredComponents(document.querySelector('select').value, document.querySelector('input').value.toLowerCase()));
 });
 
+// Event listener for when the user is searching for components using the search bar and changes the category in the dropdown found in the navbar
 document.querySelector('input').addEventListener('change', () => {
     rowCount = 0;
     createTable(getFilteredComponents(document.querySelector('select').value, document.querySelector('input').value.toLowerCase()));
 });
 
+// Event listener for when a user clicks the favorites tab in the nav bar
 document.getElementById('favorites').addEventListener('click', async () => {
     let loader = document.getElementById('loader');
     let content = document.querySelector('.content');
@@ -620,6 +641,7 @@ document.getElementById('favorites').addEventListener('click', async () => {
     }
 });
 
+// Event Listener for when a User adds/removes a favorite
 document.getElementsByClassName('favorite')[0].addEventListener('click', async () => {
     let modalTable = document.getElementById('modal-table-body');
     let itemKeys = modalTable.getElementsByTagName('th');
